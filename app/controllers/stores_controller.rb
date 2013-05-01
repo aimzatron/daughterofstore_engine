@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   def index
     @stores ||= Store.where(active: true).order('name ASC')
+    @images = [ "B_Banner1.png", "B_Banner2.png", "B_Banner3.png" ]
   end
 
   def new
