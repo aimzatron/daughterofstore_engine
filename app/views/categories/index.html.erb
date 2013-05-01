@@ -1,10 +1,10 @@
 <!% cache("categories_index_#{@current_store.path}") do %>
 
-    <h3> Categories</h3>
+    <h3>Categories</h3>
 
     <!%= paginate @current_store.categories %>
 
-    <ul class="table table-striped">
+    <ul id="p-categories">
       <% @current_store.categories.each do |category| %>
         <li>
         <%= link_to category.title, store_home_path(current_store, category_id: category.id) %>

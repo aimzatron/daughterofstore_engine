@@ -65,10 +65,25 @@
 }
 
 #top-rated-products {
-  background-color: #FFF;
   padding: 10px 20px;
+  padding-right: 0px;
+  margin-bottom: 60px;
+  border: 5px dashed #4ECDC4;
+ -webkit-border-radius: 20px;
+-webkit-border-top-right-radius: 80px;
+-webkit-border-bottom-left-radius: 80px;
+-moz-border-radius: 20px;
+-moz-border-radius-topright: 80px;
+-moz-border-radius-bottomleft: 80px;
+border-radius: 20px;
+border-top-right-radius: 80px;
+border-bottom-left-radius: 80px;
 }
 .product-image-wrapper {
   height: 168px;
   background: #fff;
+}
+
+#all_products {
+  margin-top: 40px;
 }
