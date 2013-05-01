@@ -20,7 +20,6 @@
         <% if !@product.average_ratings.empty?%>
           <h3>Average Ratings</h3>
           <% @product.average_ratings.each do |question, rating| %>
-
             <div>
               <%= question %>
               <% 5.times do |t| %>
