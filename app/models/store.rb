@@ -100,7 +100,8 @@ class Store < ActiveRecord::Base
 
   def search params={category_id: nil, sorted_by: nil}
 
-    result = params[:category_id] ? filter_products_by_category(params[:category_id]) : products
+    result = params[:category_id] ? filter_products_by_category(
+                                              params[:category_id]) : products
 
     if params[:sorted_by] == "average_rating"
       result = result.order_by_average_rating

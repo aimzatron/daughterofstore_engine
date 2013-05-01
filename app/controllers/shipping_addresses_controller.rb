@@ -19,8 +19,7 @@ class ShippingAddressesController < ApplicationController
       if session[:return_to] == profile_url
         redirect_to profile_path
       else
-        @customer.shipping_address_id = @shipping_address.id
-        @customer.save
+        @customer.update_shipping_address(@shipping_address.id)
         redirect_to new_customer_billing_addresses_path(@customer)
       end
     else
