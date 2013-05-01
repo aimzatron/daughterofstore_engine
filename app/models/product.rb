@@ -28,12 +28,12 @@ class Product < ActiveRecord::Base
   scope :filter_by_category, lambda{ |category_id|
     joins(:categories).where("categories.id = ?", category_id) unless category_id.nil? }
 
-  scope :order_by_average_rating, (
+  scope :order_by_average_rating, lambda {
     product_columns = columns.map { |c| "products.#{c.name}" }
     select_string = product_columns.join(", ")
 
-    select("#{select_string}, avg(rating) as rating").joins(:ratings).group(select_string).order("rating DESC")
-  )
+   select("#{select_string}, avg(rating) as rating").joins(:ratings).group(select_string).order("rating DESC")
+  }
 
   scope :order_by_rating, lambda{|question_id|
     product_columns = columns.map { |c| "products.#{c.name}" }
