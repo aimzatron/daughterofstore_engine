@@ -1,8 +1,12 @@
 @import "bootstrap";
+$mightyslate: #556270;
+$pacific: #4ECDC4;
+$darkpacific: #1d6560;
+
 body {
   padding-top: 60px;
-  background-color: rgba(68, 117, 123, 0.32);
-  color: #395974;
+  background-color: $pacific;
+  color: $darkpacific;
   font-family: 'Tahoma', sans-serif;
   font-size: 100%;
 }
@@ -33,7 +37,7 @@ body {
 }
 
 .img-rounded{
-  border: 6px solid rgba(68, 117, 123, 0.32);
+  border: 6px solid $pacific;
 }
 
 .prod_detail_text{
@@ -104,16 +108,17 @@ hr {
 .btn-custom-lighten {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #c8163a;
-  background-image: -moz-linear-gradient(top, #b61435, #e41942);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b61435), to(#e41942));
-  background-image: -webkit-linear-gradient(top, #b61435, #e41942);
-  background-image: -o-linear-gradient(top, #b61435, #e41942);
-  background-image: linear-gradient(to bottom, #b61435, #e41942);
+  background-color: #80b60d;
+  background-image: -moz-linear-gradient(top, #73a30c, #95d30f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#73a30c), to(#95d30f));
+  background-image: -webkit-linear-gradient(top, #73a30c, #95d30f);
+  background-image: -o-linear-gradient(top, #73a30c, #95d30f);
+  background-image: linear-gradient(to bottom, #73a30c, #95d30f);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb61435', endColorstr='#ffe41942', GradientType=0); border-color: #e41942 #e41942 #9f112e;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff73a30c', endColorstr='#ff95d30f', GradientType=0);
+  border-color: #95d30f #95d30f #628b0a;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #e41942;
+  *background-color: #95d30f;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -125,12 +130,12 @@ hr {
 .btn-custom-lighten.disabled,
 .btn-custom-lighten[disabled] {
   color: #ffffff;
-  background-color: #e41942;
-  *background-color: #cd173c;
+  background-color: #95d30f;
+  *background-color: #84bb0e;
 }
 .btn-custom-lighten:active,
 .btn-custom-lighten.active {
-  background-color: #b61435 ;
+  background-color: #73a30c ;
 }
 
 .btn-custom-lighten.dropdown-toggle span.caret{
@@ -140,7 +145,7 @@ hr {
 
 
 .btn-group.open .btn.dropdown-toggle{
-  background-color:#b61435;
+  background-color:#73a30c;
 }
 
 

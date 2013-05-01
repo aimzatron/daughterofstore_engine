@@ -19,18 +19,18 @@
 
 /* This is the sidebar nav used for user account and admin stuff*/
 .nav-list li.nav-header{
-  color: #b61435;
+  color: #80b60d;
 }
 
 .nav-list li a {
   color: rgb(57, 89, 116) ;
 }
 .nav-list li a:hover {
-  color: #b61435;
+  color: #80b60d;
 }
 
 .nav-list li.active a {
-  background-color: #b61435;
+  background-color: #80b60d;
   color:#fff;
 }
 
@@ -44,11 +44,11 @@
 }
 .nav-pills a{
   color: rgb(57, 89, 116);
-  border: 1px solid #b61435;
+  border: 1px solid #80b60d;
 }
 
 .nav-pills li.active a{
-  background-color: #b61435;
+  background-color: #80b60d;
 }
 .nav-pills li.active a:hover{
   background-color: rgb(57, 89, 116);
