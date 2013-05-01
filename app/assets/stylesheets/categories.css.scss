@@ -1,5 +1,9 @@
+#categories {
+}
 #categories h3 {
-  text-align: center;
+  text-align: left;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 #categories ul {
@@ -11,6 +15,16 @@
   margin: 0;
   padding: 5px 0;
   list-style: none;
-  text-align: center;
+  text-align: left;
   font-size: 1.2em;
 }
+
+#categories ul li a {
+  color: #C44D58;
+}
+#categories ul li a:hover {
+  text-decoration: none;
+  color: #4ECDC4;
+}
+
+
