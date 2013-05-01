@@ -91,7 +91,7 @@ class Store < ActiveRecord::Base
   end
 
   def filter_products_by_category(category_id)
-    categories.find(category_id).products
+    products = categories.find(category_id).products
   end
 
   def top_products
