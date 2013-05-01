@@ -7,7 +7,7 @@
   <ul class="dropdown-menu">
 
     <li><%= link_to "Average Rating", store_home_path(current_store, {category_id: params[:category_id], sorted_by:"average_rating"}) %></li>
-    <% current_store.questions.each do |question| %>
+    <% current_store.questions.uniq.each do |question| %>
       <li>
       <%= link_to question.question,
         store_home_path(current_store, {categroy_id: params[:category_id],
