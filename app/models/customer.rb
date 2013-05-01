@@ -31,4 +31,25 @@ class Customer < ActiveRecord::Base
     orders.joins(:order_items).
            where("order_items.product_id = ?", product_id).count > 0
   end
+
+  def update_billing_address(billing_address_id)
+    self.billing_address_id = billing_address_id
+    save
+  end
+
+  def update_shipping_address(shipping_address_id)
+    self.shipping_address_id = shipping_address_id
+  end
+
+  def update_credit_card(credit_card_id)
+    self.credit_card_id = credit_card_id
+    save
+  end
+
+  def self.generate_new_customer(email, full_name)
+    customer = Customer.create(email: email)
+    customer.full_name = full_name
+    customer.save
+    customer
+  end
 end
