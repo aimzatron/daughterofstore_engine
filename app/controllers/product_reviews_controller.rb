@@ -20,21 +20,19 @@ class ProductReviewsController < ApplicationController
      @product_review = ProductReview.make_new_product_review(
                                                       params[:product_review],
                                                       params[:product_id],
-                                                      current_user.customer.id
-                                                      )
+                                                      current_user.customer.id)
+
     if @product_review.save && !(params[:ratings].nil? || params[:ratings].empty?)
       @product_ratings = Rating.make_new_ratings( params[:ratings].values,
                                                 @product_review.id)
       if @product_ratings
         redirect_to store_product_path( store_path: current_store.path,
-                                        id: @product_review.product_id
-                                      ),
+                                        id: @product_review.product_id),
         notice: 'Successfully created new product review!'
       else
         redirect_to new_store_product_review_path(
                                       store_path: current_store.path,
-                                      id: @product_review.product_id
-                                      ),
+                                      id: @product_review.product_id),
         notice: 'Something went wrong.'
       end
 

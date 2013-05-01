@@ -20,8 +20,7 @@ class BillingAddressesController < ApplicationController
       if session[:return_to] == profile_url
         redirect_to profile_path
       else
-        @customer.billing_address_id = @billing_address.id
-        @customer.save
+        @customer.update_billing_address(@billing_address.id)
         redirect_to new_customer_credit_cards_path(@customer)
       end
     else

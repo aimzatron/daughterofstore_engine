@@ -1,13 +1,15 @@
 class Signup
   attr_reader :customer, :user, :message
 
-
   def initialize(params)
+    #if the customer email already exists and there is already a user
+    # with this email, don't create a new user/customer
     if Customer.find_by_email(params[:email]) != nil && Customer.find_by_email(params[:email]).user != nil
       @customer = Customer.new
       @user = User.new
       @message = "Email already exists"
     else
+      #make a new customer and user??? what?
       @customer = Customer.create(email: params[:email])
       @customer.full_name = params[:full_name]
       @customer.save
@@ -19,6 +21,8 @@ class Signup
         @user.update_attributes(display_name: params[:display_name])
       end
     end
+
+    #if the customer exists but the user does NOT exist, make a new user
     if Customer.find_by_email(params[:email]) != nil && Customer.find_by_email(params[:email]).user == nil
       @customer = Customer.find_by_email(params[:email])
       @customer.full_name = params[:full_name]

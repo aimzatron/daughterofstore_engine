@@ -17,9 +17,9 @@ class CreditCardsController < ApplicationController
       if session[:return_to] == profile_url
         redirect_to profile_path
       else
-        @customer.credit_card_id = @credit_card.id
-        @customer.save
-        redirect_to new_store_order_path(current_store)
+        @customer.update_credit_card(@credit_card.id)
+        redirect_to store_new_order_path( store_path: current_store.path,
+                                          customer: @customer)
       end
     else
       render "new"
@@ -34,13 +34,12 @@ class CreditCardsController < ApplicationController
   def update
     @customer = current_user.customer
     @credit_card = CreditCard.find_by_customer_id(@customer.id)
-    params.delete("utf8")
-    params.delete("_method")
-    params.delete("authenticity_token")
-    params.delete("controller")
-    params.delete("commit")
-    params.delete("action")
-    if @credit_card.update_attributes(params)
+
+    if @credit_card.update_attributes(
+                                    number: params[:number],
+                                    security_code: params[:security_code],
+                                    expiration_month: params[:expiration_month],
+                                    expiration_year: params[:expiration_year])
       @credit_card.customer_id = @customer.id
       redirect_to profile_path,
         :notice  => "Successfully updated credit card information."
