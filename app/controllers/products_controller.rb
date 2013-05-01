@@ -8,8 +8,9 @@ class ProductsController < ApplicationController
               alert: "#{current_store.name} is currently down for maintenance."
     else
       begin
-        @products = paginate(current_store.search(category_id: params[:category_id],
-                                         sorted_by: params[:sorted_by]))
+        @products = paginate(current_store.search(
+                                          category_id: params[:category_id],
+                                          sorted_by: params[:sorted_by]))
       rescue ::ActiveRecord::RecordNotFound
 
         flash.alert = "The category doesn't exist"
