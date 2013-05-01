@@ -5,9 +5,4 @@ class ProductCategory < ActiveRecord::Base
 
   validates_uniqueness_of :product_id, scope: :category_id
 
-	validate :same_store
-
-	def same_store
-    product.store_id == category.store_id
-	end
 end
