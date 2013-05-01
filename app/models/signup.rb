@@ -17,14 +17,12 @@ class Signup
       @user = User.new
       @message = "Email already exists"
     else
-      #make a new customer and user??? what?
-      @customer = Customer.create(email: email)
-      @customer.full_name = full_name
-      @customer.save
+      #make a new customer and user??? what??
+      @customer = Customer.generate_new_customer(email, full_name)
 
       @user = User.find_or_create_by_customer_id(@customer.id)
       @user.update_attributes(password: password,
-                 password_confirmation: password_confirmation)
+                              password_confirmation: password_confirmation)
       unless params[:display_name].blank?
         @user.update_attributes(display_name: display_name)
       end
@@ -32,13 +30,11 @@ class Signup
 
     #if the customer exists but the user does NOT exist, make a new user
     if cust != nil && cust.user == nil
-      @customer = Customer.find_by_email(email)
-      @customer.full_name = full_name
-      @customer.save
+      @customer = Customer.generate_new_customer(email, full_name)
       @user = User.create(password: password,
-             password_confirmation: password_confirmation,
-                      display_name: display_name,
-                       customer_id: @customer.id)
+                          password_confirmation: password_confirmation,
+                          display_name: display_name,
+                          customer_id: @customer.id)
     end
   end
 

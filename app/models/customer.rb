@@ -45,4 +45,11 @@ class Customer < ActiveRecord::Base
     self.credit_card_id = credit_card_id
     save
   end
+
+  def self.generate_new_customer(email, full_name)
+    customer = Customer.create(email: email)
+    customer.full_name = full_name
+    customer.save
+    customer
+  end
 end
