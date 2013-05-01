@@ -1,9 +1,27 @@
-<% cache("root_page") do %>
-  <div class="container">
-    <div class="row header_spacing">
-    </div>
+<div class="container">
+  <div class="row header_spacing">
+  </div>
 
-    <div class="row lead-background">
+  <!-- carousel -->
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item"><%= image_tag('B_Banner2.png') %></div>
+    <div class="item"><%= image_tag('B_Banner1.png') %></div>
+    <div class="item"><%= image_tag('b_banner3.png') %></div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<!-- /.carousel -->
+
+  <div class="row lead-background">
 
       <% @stores.each_with_index do |store, i| %>
         <%= link_to store_home_path(store) do %>
@@ -14,7 +32,8 @@
             <p class="store_descript"><%= store.description[0..30] %>...</p>
           </div>
         <% end %>
+
       <% end %>
-    </div>
+    <% end %>
   </div>
-<% end %> <!-- end of caching block -->
+</div>
