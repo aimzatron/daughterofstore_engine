@@ -22,17 +22,18 @@
 <!-- /.carousel -->
 
   <div class="row lead-background">
+    <div class= "image">
 
       <% @stores.each_with_index do |store, i| %>
         <%= link_to store_home_path(store) do %>
           <div class="span4 ">
-            <span class="store_title"><%= store.name %></span>
+            <h5 class="store_title"><span><%= store.name %></span></h5>
             <%= image_tag generate_store_image_url(store.id), class: "img-polaroid" %>
-            <br>
+            <p></p>
             <p class="store_descript"><%= store.description[0..30] %>...</p>
           </div>
         <% end %>
       <% end %>
-
+    </div>
   </div>
 </div>
