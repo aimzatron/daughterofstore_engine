@@ -92,7 +92,7 @@ class ApplicationController < ActionController::Base
         img_size_params = "#{300}/#{300}"
         img_id = products.first.id.to_s[-1].to_i
         img_id = 10 if img_id == 0
-        url = "http://lorempixel.com/#{img_size_params}/#{img_category}/#{img_id}"
+        url="http://lorempixel.com/#{img_size_params}/#{img_category}/#{img_id}"
       end
       url
     end
