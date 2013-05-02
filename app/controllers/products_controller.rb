@@ -8,12 +8,14 @@ class ProductsController < ApplicationController
               alert: "#{current_store.name} is currently down for maintenance."
     else
       begin
-        @products = paginate(current_store.search(category_id: params[:category_id],
-                                         sorted_by: params[:sorted_by]))
+        @products = paginate(current_store.search(
+                                          category_id: params[:category_id],
+                                          sorted_by: params[:sorted_by]))
       rescue ::ActiveRecord::RecordNotFound
 
         flash.alert = "The category doesn't exist"
-        @products = paginate(current_store.search(sorted_by: params[:sorted_by]))
+        @products = paginate(current_store.search(
+                                           sorted_by: params[:sorted_by]))
       end
 
     end
@@ -24,7 +26,9 @@ class ProductsController < ApplicationController
     @product ||= current_store.products.find_by_id(params[:id])
 
     if @product
-      @featured_comment = @product.featured_comment if @product.featured_comments.any?
+      if @product.featured_comments.any?
+        @featured_comment = @product.featured_comment
+      end
       render :show
     else
       redirect_to store_home_path(current_store),
