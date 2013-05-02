@@ -79,70 +79,47 @@ describe Store do
   describe "search" do
 
     context "a sorted_by value exists" do
-      it "returns the products sorted by the average rating from highest to lowest" do
-        p1 = FactoryGirl.create(:search_product)
-        p2 = FactoryGirl.create(:search_product, store: p1.store)
-        p3 = FactoryGirl.create(:search_product, store: p1.store)
+      let(:store) {FactoryGirl.create(:store)}
+      let(:p1) {FactoryGirl.create(:product, store: store)}
+      let(:p2) {FactoryGirl.create(:product, store: store)}
+      let(:p3) {FactoryGirl.create(:product, store: store)}
 
-        products = p1.store.search(sorted_by: "average_rating")
+      let(:question1) { FactoryGirl.create(:durability_question)}
+      let(:question2) { FactoryGirl.create(:packaging_question)}
+      let(:question3) { FactoryGirl.create(:question)}
+
+      before do
+        customers = [
+          FactoryGirl.create(:customer),
+          FactoryGirl.create(:customer),
+          FactoryGirl.create(:customer)
+        ]
+
+        p4 = FactoryGirl.create(:product)
+
+        create_ratings(p1, 1, [question1, question2, question3], customers)
+        create_ratings(p2, 3, [question1, question2, question3], customers)
+        create_ratings(p3, 5, [question1, question2], customers)
+        create_ratings(p4, 3, [question1, question2, question3], customers)
+
+      end
+
+      it "returns the products sorted by the average rating from highest to lowest" do
+        products = store.search(sorted_by: "average_rating")
         expect(products).to eq [p1, p2, p3].sort_by { |p| -p.average_rating }
       end
 
-      # it "returns the products sorted by the rating of a question from highest to lowest" do
-      #   product1 = FactoryGirl.create(:search_product)
-      #   product1_rating = product1.ratings.first
-      #   product1_rating.rating = 1
-      #   product1_rating.save!
+       it "returns the products sorted by the rating of a question from highest to lowest" do
+         products = store.search(sorted_by: question3.id)
+         expect(products).to eq [p2, p1]
+       end
 
-      #   question = Question.first
-
-      #   product2 = FactoryGirl.create(:search_product, store: product1.store)
-      #   product2_rating = product2.ratings.first
-      #   product2_rating.question = question
-      #   product2_rating.rating = 5
-      #   product2_rating.save!
-
-      #   product3 = FactoryGirl.create(:search_product)
-      #   product3_rating = product2.ratings.first
-      #   product3_rating.question = question
-      #   product3_rating.rating = 1
-      #   product3_rating.save!
-
-      #   products = product1.store.search(sorted_by: question.id)
-      #   expect(products).to eq [product2, product1]
-      # end
-
-      it "returns filtered products sorted by the rating of a question from highest to lowest" do
-
-        store = FactoryGirl.create(:store)
-
+      it "returns filtered products sorted by the rating of a question from highest to lowest within a category" do
         category = FactoryGirl.create(:category, store: store)
+        category.products << [p1, p2]
 
-        product1 = FactoryGirl.create(:search_product, store: store)
-        product1.categories << category
-        product1.save!
-        product1_rating = product1.ratings.first
-        product1_rating.rating = 5
-        product1_rating.save!
-
-        question = Question.first
-
-        product2 = FactoryGirl.create(:search_product, store: store)
-        product2.categories << category
-        product2.save!
-        product2_rating = product2.ratings.first
-        product2_rating.question = question
-        product2_rating.rating = 1
-        product2_rating.save!
-
-        product3 = FactoryGirl.create(:search_product, store: store)
-        product3_rating = product1.ratings.first
-        product3_rating.question = question
-        product3_rating.rating = 3
-        product3_rating.save!
-
-        products = store.search(category_id: category.id, sorted_by: question.id)
-        expect(products).to eq [product1, product2]
+        products = store.search(category_id: category.id, sorted_by: question1.id)
+        expect(products).to eq [p2, p1]
       end
     end
   end
@@ -183,3 +160,16 @@ describe Store do
   end
 
 end
+
+def create_ratings p1, rating, questions, customers
+
+  customers.each do |customer1|
+    p = FactoryGirl.create(:product_review, customer: customer1, product: p1)
+
+    questions.each do |question1|
+      p.ratings.create(question_id: question1.id, rating: rating)
+    end
+  end
+
+end
+
