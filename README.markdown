@@ -1,4 +1,4 @@
-# Team Ballmer's Daughter of StoreEngine (Ballin!)
+# Team Ballmer's Daughter of StoreEngine (Ballin'!)
 _a gSchool project by Kyle Suss, Aimee Maher, Elaine Tai, and Laura Steadman_
 
 ### View the Live Site:
