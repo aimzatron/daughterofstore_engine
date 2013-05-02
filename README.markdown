@@ -3,7 +3,7 @@ _a gSchool project by Kyle Suss, Aimee Maher, Elaine Tai, and Laura Steadman_
 
 ### View the Live Site:
 
-http://ballmer-dose.herokuapp.com
+http://dose-ballmer.herokuapp.com
 
 ### Installing Team Ballmer's Daughter of Store Engine on your computer:
 
