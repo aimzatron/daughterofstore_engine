@@ -310,40 +310,6 @@ describe Product do
     end
   end
 
-  describe "order_by_average_rating" do
-    it "returns the products sorted by the rating from highest to lowest" do
-      pending "this needs to be fixed"
-      p1 = FactoryGirl.create(:search_product)
-      p2 = FactoryGirl.create(:search_product)
-      p3 = FactoryGirl.create(:search_product)
-
-      products = Product.order_by_average_rating
-      expect(products).to eq [p1, p2, p3].sort_by { |p| -p.average_rating }
-    end
-  end
-
-  describe "order_by_rating" do
-    it "Returns the products sorted by the specific rating from highest to lowest" do
-      pending "this needs to be fixed"
-      product1 = FactoryGirl.create(:search_product)
-      product1_rating = product1.ratings.first
-      product1_rating.rating = 5
-      product1_rating.save!
-
-      question = Question.first
-
-      product2 = FactoryGirl.create(:search_product)
-      product2_rating = product2.ratings.first
-      product2_rating.question = question
-      product2_rating.rating = 1
-      product2_rating.save!
-
-      products = Product.order_by_rating(question.id)
-      expect(products).to eq [product1, product2]
-
-    end
-  end
-
   context "adding a category to a product that is from same store" do
 
     it "should be valid" do
