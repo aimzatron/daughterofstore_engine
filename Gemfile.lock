@@ -30,7 +30,7 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.6)
     arel (3.0.3)
-    aws-sdk (1.9.1)
+    aws-sdk (1.9.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
@@ -301,7 +301,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (= 1.9.1)
+  aws-sdk (= 1.9)
   binding_of_caller (= 0.7.1)
   bootstrap-sass (= 2.3.1.0)
   bullet (= 4.5.0)

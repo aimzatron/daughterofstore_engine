@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk', '1.9'
 gem 'rails', '3.2.13'
 gem 'jquery-rails', '2.2.1'
 gem 'rake', '10.0.4'
@@ -8,7 +9,6 @@ gem 'bootstrap-sass', '2.3.1.0'
 gem 'simple_form', '2.1.0'
 gem 'sorcery', '0.8.1'
 gem 'paperclip', '3.4.1'
-gem 'aws-sdk', '1.9                                                                                                                                                                                                                                                                              n.1'
 gem 'resque', "1.24.0"
 gem 'cancan', '1.6.9'
 gem 'uuid', '2.3.7'
