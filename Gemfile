@@ -27,13 +27,17 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'sqlite3', '1.3.7'
+end
+
 group :development, :test do
   gem 'rspec-rails', '2.13.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'cane', '2.5.2'
   gem 'reek', '1.3.1'
-  gem 'debugger', '1.5.0'
   gem 'capybara', '2.0.3'
+  gem 'faker', '1.1.2'
   gem 'simplecov', '0.7.1'
   gem 'binding_of_caller', '0.7.1'
   gem 'pry', '0.9.12'
@@ -41,7 +45,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker', '1.1.2'
   gem 'guard-rspec', '2.5.3'
   gem 'launchy', '2.2.0'
 end
