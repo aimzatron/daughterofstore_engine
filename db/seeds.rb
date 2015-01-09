@@ -28,7 +28,7 @@ question4 = Question.create(question: 'Description Accuracy', long_form: 'How ac
 approved_stores = [
   Store.new(name: 'Best Sunglasses', path: 'best-sunglasses', description: 'Buy our Sunglasses'),
   Store.new(name: 'Cool Sunglasses', path: 'cool-sunglasses', description: 'Buy our COOL Sunglasses'),
-  Store.new(name: "Speedy Bikes", path: "speedy-bikes", description: "Put the fun between your legs!"),
+  Store.new(name: "Speedy Bikes", path: "speedy-bikes", description: "Those Pedals!"),
   Store.new(name: "Cool Runnings", path: "cool-runnings", description: "You'll come back tomorrow and the next day and the next day and the next day."),
   Store.new(name: "Banana Stand", path: "banana-stand", description: "There's always money in the banana stand."),
   Store.new(name: "Florist-Gump", path: "florist-gump", description: "Life's not like a box of chocolates here.  What you see is what you get!"),
